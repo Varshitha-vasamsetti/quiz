@@ -1,0 +1,56 @@
+print("________________________________________")
+print("Welcome to my quiz!")
+
+question_bank = [
+    {"text": "What is 5 + 3?", "Answer": "C"},
+    {"text": "What is 12 - 4?", "Answer": "B"},
+    {"text": "What is 3 x 4?", "Answer": "A"},
+    {"text": "What is 20 ÷ 5?", "Answer": "C"},
+    {"text": "What is 15 + 6?", "Answer": "C"},
+    {"text": "What is 18 - 9?", "Answer": "B"},
+    {"text": "What is 7 x 2?", "Answer": "C"},
+    {"text": "What is 3 x 2?", "Answer": "C"},
+    {"text": "What is 9 + 9?", "Answer": "A"},
+    {"text": "What is 10 + 9?", "Answer": "A"},
+]
+
+options = [
+    ["a.6", "b.7", "c.8", "d.9"],
+    ["a.6", "b.8", "c.9", "d.7"],
+    ["a.12", "b.10", "c.14", "d.11"],
+    ["a.3", "b.5", "c.4", "d.6"],
+    ["a.20", "b.22", "c.21", "d.19"],
+    ["a.10", "b.9", "c.8", "d.7"],
+    ["a.12", "b.13", "c.14", "d.15"],
+    ["a.5", "b.7", "c.6", "d.4"],
+    ["a.18", "b.16", "c.19", "d.17"],
+    ["a.19", "b.20", "c.10", "d.9"],
+]
+
+score = 0
+
+def check_answer(guess, correct):
+    if guess==correct:
+        return True
+    else:
+        return False
+   
+
+for question_num in range(len(question_bank)):
+    print("___________________________________")
+    print(question_bank[question_num]["text"])
+    
+    for i in options[question_num]:
+        print(i)
+    
+    guess = input("Enter your option: ").upper()
+    correct_answer = question_bank[question_num]["Answer"].upper()
+    
+    if check_answer(guess, correct_answer):
+        print("Correct answer!")
+        score += 1
+    else:
+        print("Incorrect answer.")
+        print(f"The correct answer is {correct_answer}")
+
+print(f"Your final score is {score}")
